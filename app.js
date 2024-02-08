@@ -20,6 +20,9 @@ paragrafo.innerHTML = 'Escolha um número entre 1 e 10'; */
 Transformando a codificação anterior em função, para facilitar e reduzir as linhas do código */
 
 /* Inicio do código - (importante que as variáveis fiquem no inicio do código) */
+
+/* SE ATENTE A ORDEM DOS COMENDOS */
+let listaDeNumeroSorteados = [];
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1
 
@@ -60,7 +63,18 @@ function verificarChute() {
 };
 /*Necessário colocar return, para que essa função guarde um número dentro da variável criada no inicio deste código*/
 function gerarNumeroAleatorio() {
-    return parseInt(Math.random() * 10 + 1);
+    let numeroEscolhido = parseInt(Math.random() * 10 + 1);
+    if (listaDeNumeroSorteados.includes(numeroEscolhido)){
+        // includes verifica se o item esta na lista
+        return gerarNumeroAleatorio();
+        // vai gerar um novo número, caso ele já esteja na lista
+    } else {
+        listaDeNumeroSorteados.push(numeroEscolhido)
+        // push adiciona o item ao final da lista
+        console.log(listaDeNumeroSorteados)
+        return numeroEscolhido;
+        //caso ainda não tenha sido sorteado, ele vai gerar um número
+    }
 };
 /* input = entrada do usurário
 Verificamos a linha 25 do código HTML, onde escrito input do tipo número de 1 a 10.: 
@@ -78,3 +92,13 @@ function reiniciarJogo(){
     exibirMensagemInicial();
     document.getElementById('reiniciar').setAttribute('disabled', true);
 };
+
+/* Utilizando listas (array) 
+ex: let numeros = [1, 5, 9]
+numeros.length (retorna a quantidade de elementos dentro da lista)
+numeros[0] (retorna o primeiro indice da lista, podemos pedir outros indices -> 1
+    
+let linguagens = ["javascript","java","phyton"]
+linguagens[1] (retorna o segundo item da lista) -> "java"
+linguagens[linguagens.length - 1] (retorna o ultimo item da lista) -> "phyton"
+*/
