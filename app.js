@@ -23,12 +23,15 @@ Transformando a codificação anterior em função, para facilitar e reduzir as 
 
 /* SE ATENTE A ORDEM DOS COMENDOS */
 let listaDeNumeroSorteados = [];
+let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
-let tentativas = 1
+let tentativas = 1;
 
 function exibirTextoTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
+    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
+    /* Para que seja possivel utilizar o responsiveVoice, no arquivo HTML, na lista 7 foi criado um scrip - <script src="https://code.responsivevoice.org/responsivevoice.js"></script> */
 };
 /* Executando a função */
 function exibirMensagemInicial() {
@@ -63,7 +66,14 @@ function verificarChute() {
 };
 /*Necessário colocar return, para que essa função guarde um número dentro da variável criada no inicio deste código*/
 function gerarNumeroAleatorio() {
-    let numeroEscolhido = parseInt(Math.random() * 10 + 1);
+    let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
+    //Variável e if criados para limpar lista, quando atingir total de elementos já rodados na lista 
+    let quantidadeDeElementosNaLista = listaDeNumeroSorteados.length;
+    
+    if (quantidadeDeElementosNaLista == numeroEscolhido) {
+        listaDeNumeroSorteados = [];
+    };
+
     if (listaDeNumeroSorteados.includes(numeroEscolhido)){
         // includes verifica se o item esta na lista
         return gerarNumeroAleatorio();
