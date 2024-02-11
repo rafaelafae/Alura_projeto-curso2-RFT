@@ -1,5 +1,6 @@
 /* Criação de variável para editar a interface do html, adicionando informações na tela;
-Itém a ser editado na página index.html, Na linha 22 do arquivo HTML, temos <h1></h1>. Geralmente, a tag h1 é usada para dar nome aos títulos da página.
+Itém a ser editado na página index.html, Na linha 22 do arquivo HTML, temos <h1></h1>
+Geralmente, a tag h1 é usada para dar nome aos títulos da página.
 Esta tag vai de h1 até h6, como se fossem níveis, sendo h1 o principal;
 Para alterar algum conteúdo do HTML com o JavaScript, utilizamos a palavra reservada chamada document;
 E para captar o item que desejamos alterar, utilizamos querySelector, que deve ser escrito dessa forma, com S maiúsculo, por ser um case sensitive;
@@ -112,3 +113,6 @@ let linguagens = ["javascript","java","phyton"]
 linguagens[1] (retorna o segundo item da lista) -> "java"
 linguagens[linguagens.length - 1] (retorna o ultimo item da lista) -> "phyton"
 */
+
+
+https://alura-projeto-curso2-rft.vercel.app/
